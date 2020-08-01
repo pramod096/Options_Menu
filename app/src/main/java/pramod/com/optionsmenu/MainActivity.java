@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -48,8 +49,19 @@ public class MainActivity extends AppCompatActivity {
         builder.setTitle("SAMPLE ALERT");
         builder.setIcon(R.drawable.smiley);
         builder.setMessage("This is a sample message");
-        builder.setPositiveButton("YES", null);
+        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(MainActivity.this, "Positive Button is Clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
         builder.setNegativeButton("NO", null);
         builder.show();
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        showAlertDialog();
     }
 }
