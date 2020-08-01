@@ -1,6 +1,7 @@
 package pramod.com.optionsmenu;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -34,10 +35,21 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Second", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.third:
-                Toast.makeText(this, "Third", Toast.LENGTH_SHORT).show();
+                showAlertDialog();
                 break;
 
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showAlertDialog() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("SAMPLE ALERT");
+        builder.setIcon(R.drawable.smiley);
+        builder.setMessage("This is a sample message");
+        builder.setPositiveButton("YES", null);
+        builder.setNegativeButton("NO", null);
+        builder.show();
     }
 }
