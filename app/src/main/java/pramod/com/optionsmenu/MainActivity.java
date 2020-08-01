@@ -1,9 +1,12 @@
 package pramod.com.optionsmenu;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,5 +20,24 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.option_menu, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+        switch(id) {
+            case R.id.first:
+                Toast.makeText(this, "First", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.second:
+                Toast.makeText(this, "Second", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.third:
+                Toast.makeText(this, "Third", Toast.LENGTH_SHORT).show();
+                break;
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
